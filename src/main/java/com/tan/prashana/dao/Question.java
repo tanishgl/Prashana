@@ -38,6 +38,10 @@ public class Question implements Serializable {
     @Size(min = 1, max = 420)
     private String questionDesc;
     
+    @OneToOne
+    @JoinColumn(name = "QUIZ_ID", nullable = false)
+    private Quiz quiz;
+    
     @Column(name="SCORE")
     private Integer score;
     
