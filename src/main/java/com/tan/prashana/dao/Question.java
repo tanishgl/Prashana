@@ -38,13 +38,6 @@ public class Question implements Serializable {
     @Size(min = 1, max = 420)
     private String questionDesc;
     
-    @OneToMany(mappedBy = "question")
-    private Set<Answer> answers;
-    
-    @OneToOne()
-    @JoinColumn(name = "CORR_ANS", referencedColumnName = "answerId")
-    private Answer correctAnswer;
-    
     @Column(name="SCORE")
     private Integer score;
     

@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
@@ -36,7 +37,10 @@ public class Answer implements Serializable {
     @Size(min = 1,max = 120)
     private String content;
     
-    @ManyToOne
+    @OneToOne(optional = false)
     @JoinColumn(name = "QUES_ID")
     private Question question;
+    
+    @Column(name="IS_CORRECT", nullable = false)
+    private boolean isCorrect;
 }
