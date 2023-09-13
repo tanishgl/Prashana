@@ -38,6 +38,14 @@ public class Question implements Serializable {
     @Size(min = 1, max = 420)
     private String questionDesc;
     
+    @Column(name = "OPTIONS", nullable = false)
+    @OneToMany()
+    private Set<Answer> options;
+    
+    @OneToOne()
+    @JoinColumn(name = "CORRECT_ANSWER", nullable = false)
+    private Answer correctAnswer;
+    
     @OneToOne
     @JoinColumn(name = "QUIZ_ID", nullable = false)
     private Quiz quiz;

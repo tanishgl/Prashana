@@ -10,7 +10,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
@@ -31,16 +30,10 @@ import lombok.Setter;
 public class Answer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ANSWER_ID")
     private Long answerId;
     
     @Column(name="CONTENT", nullable=false)
     @Size(min = 1,max = 120)
     private String content;
-    
-    @OneToOne(optional = false)
-    @JoinColumn(name = "QUES_ID")
-    private Question question;
-    
-    @Column(name="IS_CORRECT", nullable = false)
-    private boolean isCorrect;
 }
