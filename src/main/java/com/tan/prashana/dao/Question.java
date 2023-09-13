@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -52,8 +53,8 @@ public class Question implements Serializable {
     @JoinColumn(name = "CORRECT_ANSWER", nullable = false)
     private Answer correctAnswer;
     
-    @OneToOne
-    @JoinColumn(name = "QUIZ_ID", nullable = false)
+    @ManyToOne()
+    @JoinColumn(name = "QUIZ_ID")
     private Quiz quiz;
     
     @Column(name="SCORE")

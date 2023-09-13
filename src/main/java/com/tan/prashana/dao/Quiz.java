@@ -9,9 +9,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Set;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,6 +35,10 @@ public class Quiz implements Serializable{
     @Column(name="QUIZ_NAME", nullable = false)
     @Size(min = 1, max = 120)
     private String quizName;
+    
+    @OneToMany(mappedBy = "quiz")
+    @Column(name="QUESTION_SET")
+    private Set<Question> questionSet;
     
     @Column(name="QUESTION_COUNT")
     private Integer question_count;
