@@ -5,8 +5,6 @@
 package com.tan.prashana.repository;
 
 import com.tan.prashana.dao.Answer;
-import com.tan.prashana.dao.Question;
-import java.util.Set;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -14,7 +12,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author tanish
  */
 public interface AnswerRepository extends CrudRepository<Answer, Long> {
-    Set<Answer> findByQuestion(Question question);
-    
-    Answer findByQuestionAndIsCorrectTrue(Question question);
+    Answer findByAnswerId(Answer answer);
 }

@@ -11,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -38,8 +40,12 @@ public class Question implements Serializable {
     @Size(min = 1, max = 420)
     private String questionDesc;
     
-    @Column(name = "OPTIONS", nullable = false)
-    @OneToMany()
+    @ManyToMany
+    @JoinTable(
+            name = "QUES_ANS",
+            joinColumns = @JoinColumn(name = "QUESTION_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ANSWER_ID")
+    )
     private Set<Answer> options;
     
     @OneToOne()
