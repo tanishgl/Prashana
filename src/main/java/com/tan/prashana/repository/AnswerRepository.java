@@ -15,4 +15,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface AnswerRepository extends CrudRepository<Answer, Long> {
     Set<Answer> findByQuestion(Question question);
+    
+    Answer findByQuestionAndIsCorrectTrue(Question question);
 }
