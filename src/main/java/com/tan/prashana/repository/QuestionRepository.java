@@ -4,15 +4,13 @@
  */
 package com.tan.prashana.repository;
 
-import com.tan.prashana.dao.Answer;
+import com.tan.prashana.dao.Question;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author tanish
  */
-public interface AnswerRepository extends CrudRepository<Answer, Long> {
-    Answer findByAnswerId(Answer answer);
-    Answer findByContent(String answer);
-    boolean existsByContent(String answer);
+public interface QuestionRepository extends CrudRepository<Question, Long> {
+    
 }
