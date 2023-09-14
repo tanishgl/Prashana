@@ -21,7 +21,7 @@ import lombok.ToString;
 public class QuestionModel {
     @NonNull private Long quizId;
     @NonNull private String questionDesc;
-    @NonNull private Set<Answer> options;
+    @NonNull private Set<String> options;
     @NonNull private Answer correctAnswer;
     private Integer score;
 }
