@@ -19,19 +19,17 @@ import org.springframework.stereotype.Service;
 public class AnswerService {
     
     @Autowired
-    private AnswerRepository ansRepo;
-    
-    ObjectMapper mapper = new ObjectMapper();
+    private AnswerRepository answerRepository;
     
     public Answer createAnswer(String answer){
-        boolean doesAnswerAlreadyExist = ansRepo.existsByContent(answer);
+        boolean doesAnswerAlreadyExist = answerRepository.existsByContent(answer);
         Answer newAnswer;
         if(!doesAnswerAlreadyExist){
             newAnswer = new Answer();
             newAnswer.setContent(answer);
-            newAnswer = ansRepo.save(newAnswer);
+            newAnswer = answerRepository.save(newAnswer);
         } else {
-            newAnswer = ansRepo.findByContent(answer);
+            newAnswer = answerRepository.findByContent(answer);
         }
         return newAnswer;
     }

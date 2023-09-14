@@ -4,6 +4,7 @@
  */
 package com.tan.prashana.model;
 
+import java.io.Serializable;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -16,6 +17,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class AnswerModel {
+public class AnswerModel implements Serializable{
     @NonNull private String answerValue;
 }

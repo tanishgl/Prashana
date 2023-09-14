@@ -5,6 +5,7 @@
 package com.tan.prashana.model;
 
 import com.tan.prashana.dao.Answer;
+import java.io.Serializable;
 import java.util.Set;
 import lombok.Getter;
 import lombok.NonNull;
@@ -18,7 +19,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class QuestionModel {
+public class QuestionModel implements Serializable{
     @NonNull private Long quizId;
     @NonNull private String questionDesc;
     @NonNull private Set<String> options;
